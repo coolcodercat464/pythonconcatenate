@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Concatest</title>
+    </head>
+    <body>
+        <h1 id="title">Concatenated Word Appears Here</h1>
+        <input type="text" id="word1"> <br>                               
+        <input type="text" id="word2"> <br>  
+        <button onclick="process()">Concatenate!</button>
+
+        <script>
+            function process() {
+                const dataToSend = {
+                    word1: document.getElementById('word1').value,
+                    word2: document.getElementById('word2').value
+                };
+
+                fetch('/python', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                }).then(response => response.json()).then(data => {
+                    document.getElementById('title').innerHTML = data.final;
+                })
+            }
+        </script>
+    </body>
+</html>
