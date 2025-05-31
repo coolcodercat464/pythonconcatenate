@@ -2,8 +2,8 @@ import sys
 import requests
 import json
 
-args = sys.argv[1:]
-word1, word2 = args 
+word1 = sys.argv[1]
+word2 = sys.argv[2] 
 word = word1 + ' ' + word2
 
 result = {
