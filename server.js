@@ -12,6 +12,9 @@ const bodyparser = require('body-parser');                // bodyparser for form
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
 
+// deployment thing
+app.use('/.well-known', express.static(path.join(__dirname, 'public', '.well-known')));
+
 //const { spawn } = require('child_process');
 
 var myPythonScript = "main.py";
